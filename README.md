@@ -1,2 +1,2 @@
 # project-midnight
-Website for embedded systems course
+Web-presence for CSE 237D/145 Embedded Systems course
