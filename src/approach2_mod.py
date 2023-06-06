@@ -43,12 +43,6 @@ class JPEGCompress(nn.Module):
         self.conv1 = Double_Conv2d(4, 64)
         self.conv2 = Double_Conv2d(64, 128)
         self.conv3 = Double_Conv2d(128, 256)
-#         self.conv4 = Double_Conv2d(256, 512)
-#         self.conv5 = Double_Conv2d(512, 1024)
-#         self.up6 = nn.ConvTranspose2d(1024, 512, kernel_size=2, stride=2)
-#         self.conv6 = Double_Conv2d(1024, 512)
-#         self.up7 = nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2)
-#         self.conv7 = Double_Conv2d(512, 256)
         self.up8 = nn.ConvTranspose2d(256, 128, kernel_size=2, stride=2)
         self.conv8 = Double_Conv2d(256, 128)
         self.up9 = nn.ConvTranspose2d(128, 64, kernel_size=2, stride=2)
@@ -64,20 +58,6 @@ class JPEGCompress(nn.Module):
         pool2 = F.max_pool2d(conv2, kernel_size=2)
 
         conv3 = self.conv3(pool2)
-#         pool3 = F.max_pool2d(conv3, kernel_size=2)
-
-#         conv4 = self.conv4(pool3)
-#         pool4 = F.max_pool2d(conv4, kernel_size=2)
-
-#         conv5 = self.conv5(pool4)
-
-#         up6 = self.up6(conv5)
-#         up6 = torch.cat([up6, conv4], 1)
-#         conv6 = self.conv6(up6)
-
-#         up7 = self.up7(conv6)
-#         up7 = torch.cat([up7, conv3], 1)
-#         conv7 = self.conv7(up7)
 
         up8 = self.up8(conv3)
         up8 = torch.cat([up8, conv2], 1)
@@ -87,7 +67,6 @@ class JPEGCompress(nn.Module):
         up9 = torch.cat([up9, conv1], 1)
         conv9 = self.conv9(up9)
 
-        # conv10 = self.conv10(conv9)
         out = F.pixel_shuffle(conv9, 2)
 
         return dc, out
@@ -141,9 +120,6 @@ class UNetSony(nn.Module):
         up9 = torch.cat([up9, conv1], 1)
         conv9 = self.conv9(up9)
 
-        # conv10 = self.conv10(conv9)
-        # out = F.pixel_shuffle(conv10, 2)
-
         return conv9
 
 
@@ -187,6 +163,7 @@ class Decoder_1(nn.Module):
 
         return dc
 
+    
 class Decoder(nn.Module):
     def __init__(self, in_channel, out_channel):
         super(Decoder, self).__init__()
@@ -226,7 +203,6 @@ class Decoder_RAW(nn.Module):
     def forward(self, x):
 
         dc = self.decoder(x)
-        # out = F.pixel_shuffle(dc, 2)
 
         return dc
 
