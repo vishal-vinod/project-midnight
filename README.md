@@ -16,6 +16,8 @@ With a noisy raw image captured with low-exposure time (i.e., shutter speed) as 
 ## Reproducible Experimentation
 For adapted future research we have also created a [Docker Image](https://hub.docker.com/r/vvinodhub/midnight).
 
+Refer to [LSID](https://github.com/cchen156/Learning-to-See-in-the-Dark) for their codebase and instructions.
+
 ## Setup
 
 ### Requirement
