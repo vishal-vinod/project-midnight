@@ -21,9 +21,9 @@ Refer to [LSID](https://github.com/cchen156/Learning-to-See-in-the-Dark) for the
 ## Setup
 
 ### Requirement
-Required python (version 2.7) libraries: Tensorflow (>=1.1) + Scipy + Numpy + Rawpy.
+Required python libraries: PyTorch (>=1.0.0) + Scipy + Numpy + Rawpy + Matplotlib + OpenCV
 
-Tested in Ubuntu + Intel i7 CPU + Nvidia Titan X (Pascal) with Cuda (>=8.0) and CuDNN (>=5.0). CPU mode should also work with minor changes but not tested.
+Tested in Ubuntu + Intel i7 CPU + Nvidia RTX 2080 ti. 
 
 ### Dataset
 
